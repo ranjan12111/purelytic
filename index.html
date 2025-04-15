@@ -27,6 +27,7 @@
       transition: transform 0.4s ease, box-shadow 0.3s ease;
       overflow: hidden;
       border: 1px solid #e0e0e0;
+      position: relative;
     }
     .product-card:hover {
       transform: translateY(-8px);
@@ -69,6 +70,18 @@
     .btn-whatsapp:hover {
       background-color: #1ebc5a;
       color: #fff;
+    }
+    .ribbon {
+      position: absolute;
+      top: 10px;
+      left: -5px;
+      background: #ff4081;
+      color: white;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: bold;
+      transform: rotate(-45deg);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
@@ -125,6 +138,58 @@
       ⭐⭐⭐⭐ “My family trusts only Purelytic.” – Priya, Delhi &nbsp;&nbsp;&nbsp;
       ⭐⭐⭐⭐⭐ “Super easy to install, best RO ever!” – Vivek, Jaipur
     </marquee>
+  </div>
+
+  <!-- Additional Products Section -->
+  <div class="container my-5">
+    <h3 class="text-center mb-4">Explore More Products</h3>
+    <div class="row">
+      <div class="col-md-3 mb-4" data-aos="zoom-in">
+        <div class="card product-card">
+          <div class="ribbon">Best Seller</div>
+          <img src="4.png" class="card-img-top" alt="Slim Mini RO">
+          <div class="card-body">
+            <h5 class="card-title">Purelytic Slim Mini RO</h5>
+            <p class="text-muted mb-1">₹4,999</p>
+            <p class="card-text">Compact design, 6-stage filtration system. Perfect for small families and hostel rooms.</p>
+            <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card product-card">
+          <img src="5.png" class="card-img-top" alt="Copper Advance Pro">
+          <div class="card-body">
+            <h5 class="card-title">Purelytic Copper Advance Pro</h5>
+            <p class="text-muted mb-1">₹10,999</p>
+            <p class="card-text">Copper + Alkaline RO with UV LED purification. Perfect for healthy hydration.</p>
+            <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card product-card">
+          <img src="3.png" class="card-img-top" alt="WallMate Eco">
+          <div class="card-body">
+            <h5 class="card-title">Purelytic WallMate Eco</h5>
+            <p class="text-muted mb-1">₹6,499</p>
+            <p class="card-text">Wall mount RO, low TDS removal. Budget-friendly for apartments and small families.</p>
+            <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="card product-card">
+          <img src="2.png" class="card-img-top" alt="Pro+ Tankless">
+          <div class="card-body">
+            <h5 class="card-title">Purelytic Pro+ Tankless</h5>
+            <p class="text-muted mb-1">₹13,499</p>
+            <p class="card-text">Tankless, instant purification with stylish design. Ideal for modern kitchens and offices.</p>
+            <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
