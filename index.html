@@ -12,7 +12,7 @@
       font-family: 'Poppins', sans-serif;
     }
     .hero {
-      background: url('https://images.unsplash.com/photo-1607965090814-3d57b798f13d?fit=crop&w=1400&q=80') no-repeat center center/cover;
+      background: url('9.png') no-repeat center center/cover;
       color: white;
       text-align: center;
       padding: 100px 20px;
@@ -83,6 +83,54 @@
       transform: rotate(-45deg);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
+
+    /* Parallax Styles */
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    .parallax-container {
+      height: 100vh;
+      overflow: hidden;
+      overflow-y: auto;
+      perspective: 3px;
+    }
+    section {
+      background-size: cover;
+      color: white;
+      background-color: var(--bg, black);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+    section.image {
+      background-position: center center;
+      transform: translateZ(-1px) scale(1.5);
+      background-size: cover;
+      z-index: -1;
+      height: 100vh;
+    }
+    section.text {
+      height: 50vh;
+    }
+    section.heading {
+      z-index: -1;
+      transform: translateY(-30vh) translateZ(1px) scale(1.5);
+    }
+    .footer {
+      position: relative;
+      display: block;
+      background-color: black;
+      height: 100vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   </style>
 </head>
 
@@ -94,44 +142,6 @@
     <a href="dealers.html" class="btn btn-outline-light m-2">Become a Dealer</a>
   </div>
 
-  <div id="products" class="container my-5">
-    <h2 class="text-center mb-5">Our Premium RO Purifiers</h2>
-    <div class="row">
-      <div class="col-md-4 mb-5" data-aos="fade-up">
-        <div class="card product-card">
-          <img src="8.png">
-          <div class="card-body">
-            <h5 class="card-title">Purelytic Crystal RO+UV+UF</h5>
-            <p class="card-text">7-Stage Filtration, TDS Controller, 12L Tank, Wall Mount. Ideal for homes & small offices.</p>
-            <a href="https://wa.me/919798844205" target="_blank" class="btn btn-whatsapp">Enquire on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-5" data-aos="fade-up" data-aos-delay="100">
-        <div class="card product-card">
-          <img src="6.png">
-          <div class="card-body">
-            <h5 class="card-title">Purelytic Elite Copper+</h5>
-            <p class="card-text">Copper Enriched Alkaline RO, UV, LED Display, 8L Tank. Best for health-conscious families.</p>
-            <a href="https://wa.me/919798844205" target="_blank" class="btn btn-whatsapp">Enquire on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-5" data-aos="fade-up" data-aos-delay="200">
-        <div class="card product-card">
-          <img src="7.png">
-          <div class="card-body">
-            <h5 class="card-title">Purelytic Commercial Max</h5>
-            <p class="card-text">25L/hr Output, Stainless Steel, Auto Shut-Off, Leak Detection. Ideal for restaurants & shops.</p>
-            <a href="https://wa.me/919798844205" target="_blank" class="btn btn-whatsapp">Enquire on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <a class="floating-whatsapp" href="https://wa.me/919798844205" target="_blank">Chat on WhatsApp</a>
-
   <div class="reviews-marquee">
     <marquee behavior="scroll" direction="left">
       ⭐⭐⭐⭐⭐ “Amazing water taste and service!” – Ramesh, Patna &nbsp;&nbsp;&nbsp;
@@ -140,24 +150,53 @@
     </marquee>
   </div>
 
-  <!-- Additional Products Section -->
+  <!-- Parallax Showcase Section -->
+  <div class="parallax-container">
+    <section class="image" style="background-image: url('8.png')"></section>
+    <section class="heading">
+      <h1>Crystal RO+UV+UF</h1>
+    </section>
+    <section class="text" style="--bg: #c8c8bc">
+      <h2>₹7,999</h2>
+      <p>7-Stage Filtration, TDS Controller, 12L Tank, Wall Mount. Ideal for homes & small offices.</p>
+      <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+    </section>
+    <section class="image" style="background-image: url('6.png')"></section>
+    <section class="heading">
+      <h1>Copper+ Alkaline</h1>
+    </section>
+    <section class="text" style="--bg: #638a87">
+      <h2>₹10,999</h2>
+      <p>Copper Enriched Alkaline RO, UV, LED Display, 8L Tank. Best for health-conscious families.</p>
+      <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+    </section>
+    <section class="image" style="background-image: url('7.png')"></section>
+    <section class="heading">
+      <h1>Commercial Max</h1>
+    </section>
+    <section class="text" style="--bg: #384558">
+      <h2>₹14,999</h2>
+      <p>25L/hr Output, Stainless Steel, Auto Shut-Off, Leak Detection. Ideal for restaurants & shops.</p>
+      <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+    </section>
+    <section class="image" style="background-image: url('4.png')"></section>
+    <section class="heading">
+      <h1>Slim Mini RO</h1>
+    </section>
+    <section class="text" style="--bg: #9dbdc4">
+      <h2>₹4,999</h2>
+      <p>Compact design, 6-stage filtration system. Perfect for small families and hostel rooms.</p>
+      <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+    </section>
+  </div>
+
+  <!-- Product Section (Bottom Products As-Is) -->
   <div class="container my-5">
     <h3 class="text-center mb-4">Explore More Products</h3>
     <div class="row">
       <div class="col-md-3 mb-4" data-aos="zoom-in">
         <div class="card product-card">
           <div class="ribbon">Best Seller</div>
-          <img src="4.png" class="card-img-top" alt="Slim Mini RO">
-          <div class="card-body">
-            <h5 class="card-title">Purelytic Slim Mini RO</h5>
-            <p class="text-muted mb-1">₹4,999</p>
-            <p class="card-text">Compact design, 6-stage filtration system. Perfect for small families and hostel rooms.</p>
-            <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="card product-card">
           <img src="5.png" class="card-img-top" alt="Copper Advance Pro">
           <div class="card-body">
             <h5 class="card-title">Purelytic Copper Advance Pro</h5>
@@ -167,7 +206,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
         <div class="card product-card">
           <img src="3.png" class="card-img-top" alt="WallMate Eco">
           <div class="card-body">
@@ -178,7 +217,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="300">
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
         <div class="card product-card">
           <img src="2.png" class="card-img-top" alt="Pro+ Tankless">
           <div class="card-body">
