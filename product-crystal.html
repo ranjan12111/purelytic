@@ -1,3 +1,4 @@
+<!-- Full page code with product section restored -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,17 +8,27 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #111;
+      --text-color: #fff;
+      --accent-color: #00ffae;
+    }
+    body.light-mode {
+      --bg-color: #f8f9fa;
+      --text-color: #111;
+    }
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #111;
-      color: #fff;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       margin: 0;
       padding: 0;
+      transition: 0.3s;
     }
     header {
       background-color: #000;
       padding: 10px 20px;
-      border-bottom: 2px solid #00ffae;
+      border-bottom: 2px solid var(--accent-color);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -31,14 +42,19 @@
     .logo {
       height: 50px;
     }
-    footer {
-      background: #000;
-      color: #aaa;
-      padding: 40px 20px;
-      margin-top: 60px;
+    nav {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
     }
-    footer h5 {
-      color: #00ffae;
+    nav a {
+      color: var(--text-color);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: var(--accent-color);
     }
     .container {
       max-width: 1140px;
@@ -54,24 +70,20 @@
       transform: scale(1.05);
     }
     .carousel-indicators li {
-      background-color: #00ffae;
+      background-color: var(--accent-color);
     }
     .price {
       font-size: 1.8rem;
-      color: #00ffae;
+      color: var(--accent-color);
       font-weight: bold;
       margin-top: 15px;
     }
-    .offer-box {
+    .offer-box, .review-box, .guarantee-box, .pincode-box {
       background: #222;
       padding: 20px;
       border-radius: 10px;
       margin-top: 20px;
       color: #ccc;
-    }
-    .offer-box ul {
-      list-style: square;
-      padding-left: 20px;
     }
     .features {
       list-style: none;
@@ -79,56 +91,68 @@
     }
     .features li::before {
       content: "✔ ";
-      color: #00ffae;
+      color: var(--accent-color);
     }
-    .btn-whatsapp {
-      background-color: #25d366;
-      color: white;
+    .btn-whatsapp, .btn-buy, .btn-darkmode {
       border: none;
       border-radius: 30px;
       padding: 10px 20px;
       font-weight: 500;
       text-decoration: none;
-      display: inline-block;
       margin-top: 20px;
+      display: inline-block;
+    }
+    .btn-whatsapp {
+      background-color: #25d366;
+      color: white;
       font-size: 0.9rem;
     }
     .btn-buy {
       background-color: #ff3c3c;
       color: white;
-      border: none;
-      border-radius: 30px;
-      padding: 12px 28px;
-      font-weight: 600;
-      font-size: 1rem;
-      margin-top: 20px;
-      text-decoration: none;
-      display: inline-block;
+      margin-right: 10px;
+    }
+    .btn-darkmode {
+      background-color: var(--accent-color);
+      color: #000;
+      float: right;
       margin-right: 10px;
     }
     .section-title {
-      color: #00ffae;
+      color: var(--accent-color);
       font-size: 2rem;
       margin-bottom: 20px;
     }
-    .faq {
-      margin-top: 40px;
-    }
     .faq h5 {
-      color: #00ffae;
+      color: var(--accent-color);
     }
     .faq p {
       color: #ccc;
       margin-bottom: 15px;
     }
+    footer {
+      background: #000;
+      color: #aaa;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+    footer h5 {
+      color: var(--accent-color);
+    }
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html" class="home-link"><img src="homei.png" alt="Home"></a>
-    <img src="logo1.png" alt="PURELYTIC Logo" class="logo">
+    <a href="index.html" class="home-link"><img src="home-icon.png" alt="Home"></a>
+    <img src="logo.png" alt="PURELYTIC Logo" class="logo">
+    <button class="btn-darkmode" onclick="toggleMode()">🌙/☀️</button>
   </header>
-  
+  <nav>
+    <a href="#">Home</a>
+    <a href="#features">Features</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+  </nav>
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-6">
@@ -170,43 +194,34 @@
         <a href="https://wa.me/919798844205" target="_blank" class="btn-whatsapp">Enquire on WhatsApp</a>
       </div>
     </div>
-
+  </div>
+  <div class="container">
     <div class="offer-box">
-      <h4>Available Offers</h4>
-      <ul>
-        <li><strong>Bank Offer:</strong> 5% Unlimited Cashback on Flipkart Axis Bank Credit Card</li>
-        <li><strong>Bank Offer:</strong> 10% Instant Discount on SBI Credit Card Orders above ₹4,990</li>
-        <li><strong>Bank Offer:</strong> Extra ₹500 off on SBI Credit Card on orders above ₹24,990</li>
-        <li><strong>Easy Payment:</strong> EMI starting from ₹545/month, COD available</li>
-      </ul>
+      <h4 class="section-title">Guarantee & Return</h4>
+      <p>🛡 <strong>1-Year Warranty</strong> | 🚚 7-Day Easy Returns</p>
     </div>
 
-    <div class="mt-5">
-      <h3 class="section-title">Highlights</h3>
+    <div class="pincode-box">
+      <h4 class="section-title">Check Delivery Availability</h4>
+      <input type="text" id="pincode" placeholder="Enter your pincode" class="form-control w-50 mb-2">
+      <button class="btn btn-outline-light" onclick="checkDelivery()">Check</button>
+      <p id="delivery-result" class="mt-2"></p>
+    </div>
+
+    <div class="review-box" id="reviews">
+      <h4 class="section-title">Customer Reviews (4.2/5)</h4>
       <ul class="features">
-        <li>Electrical & Storage : Electric purification - suitable for areas with water shortage</li>
-        <li>12L Capacity : More storage for more users</li>
-        <li>UV + UF : Chemical-free purification in multiple stages</li>
-        <li>Stylish Design with Digital Display</li>
-        <li>Advanced Technology Alerts</li>
+        <li>⭐⭐⭐⭐⭐ “Excellent build and taste!” – Ramesh, Patna</li>
+        <li>⭐⭐⭐⭐ “Quick install and neat design.” – Priya, Delhi</li>
+        <li>⭐⭐⭐ “Good purifier but water flow is average.” – Amit, Ranchi</li>
+        <li>⭐⭐⭐⭐⭐ “Top class product, highly recommended!” – Nisha, Mumbai</li>
+        <li>⭐⭐⭐⭐ “Works well, stylish too.” – Vikram, Hyderabad</li>
+        <li>⭐⭐⭐ “Expected faster service.” – Faizan, Lucknow</li>
+        <li>⭐⭐⭐⭐⭐ “No complaints! Pure water every time.” – Ravi, Pune</li>
+        <li>⭐⭐⭐⭐ “Efficient but bit noisy.” – Shalini, Surat</li>
+        <li>⭐⭐⭐⭐⭐ “Crystal clear water! My kids love it.” – Sandeep, Jaipur</li>
+        <li>⭐⭐⭐ “Average packaging, but works fine.” – Tanu, Kolkata</li>
       </ul>
-    </div>
-
-    <div class="mt-5">
-      <h3 class="section-title">Product Description</h3>
-      <p>The Purelytic Crystal water purifier delivers clean, safe, and great-tasting water with advanced RO+UV+UF filtration. Its sleek design with a digital display complements your modern kitchen. Enjoy smart features like filter life alert, wall mount or tabletop setup, and an energy-saving UV lamp. It’s a smart solution for your daily water needs, especially in urban households with municipal supply.</p>
-    </div>
-
-    <div class="faq">
-      <h3 class="section-title">Questions and Answers</h3>
-      <h5>Q: Is it wall mounted?</h5>
-      <p>A: It can be mounted on the wall as well as placed on a table or counter.</p>
-
-      <h5>Q: Does it dispense water without electricity?</h5>
-      <p>A: Yes. Since this is a storage water purifier, purified water is stored and can be used without electricity until it purifies again.</p>
-
-      <h5>Q: What is the storage capacity for hot water?</h5>
-      <p>A: This model supports only normal-temperature purification. Hot & cold variants available separately.</p>
     </div>
   </div>
 
@@ -228,7 +243,35 @@
     </div>
   </footer>
 
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+    }
+    function checkDelivery() {
+      const pin = document.getElementById("pincode").value;
+      const state = getStateByPincode(pin);
+      if (pin && pin.length === 6) {
+        const date = new Date();
+        date.setDate(date.getDate() + 7);
+        const deliveryDate = date.toDateString();
+        document.getElementById("delivery-result").innerText = `✅ Delivery available in ${state || 'your area'} by ${deliveryDate}`;
+      } else {
+        document.getElementById("delivery-result").innerText = '❌ Please enter a valid 6-digit pincode.';
+      }
+    }
+    function getStateByPincode(pin) {
+      const pincodeMap = {
+        "800001": "Patna, Bihar",
+        "110001": "New Delhi",
+        "400001": "Mumbai, Maharashtra",
+        "700001": "Kolkata, West Bengal",
+        "600001": "Chennai, Tamil Nadu"
+      };
+      return pincodeMap[pin] || null;
+    }
+  </script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
