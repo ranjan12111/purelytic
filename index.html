@@ -1,6 +1,6 @@
+<!-- Updated index.html with Lottie Animation, Hero Animation, Badge, Counters -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <style>
     body {
       margin: 0;
@@ -24,14 +25,21 @@
       justify-content: center;
       text-align: center;
       padding: 20px;
+      position: relative;
     }
     .hero h1 {
       font-size: 3rem;
       font-weight: 600;
+      animation: fadeInUp 1s ease forwards;
     }
     .hero p {
       font-size: 1.2rem;
       margin-top: 10px;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .btn-custom {
       background-color: #25d366;
@@ -46,6 +54,19 @@
     .btn-custom:hover {
       background-color: #1ebc5a;
       transform: scale(1.05);
+    }
+    .badge-floating {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #00ffae;
+      color: black;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 20px;
+      box-shadow: 0 0 12px rgba(0, 255, 174, 0.5);
+      z-index: 10;
+      font-size: 0.85rem;
     }
     .section-dark {
       background-color: #1c1c1c;
@@ -102,11 +123,30 @@
       font-style: italic;
       font-size: 0.9rem;
     }
+    .counters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 50px 0;
+    }
+    .counter-box {
+      text-align: center;
+    }
+    .counter-box h3 {
+      font-size: 2.5rem;
+      color: #00ffae;
+    }
+    .counter-box p {
+      font-size: 1rem;
+      color: #ccc;
+    }
   </style>
 </head>
-
 <body>
   <div class="hero">
+    <div class="badge-floating">🛡 100% Water Safe Certified</div>
+    <lottie-player src="https://lottie.host/1ff42dbd-f4e4-4e9d-8b91-95f38221e3e3/KZcYBdnYmb.json" background="transparent" speed="1" style="width: 80px; height: 80px; margin-bottom: 10px;" loop autoplay></lottie-player>
     <h1>Pure Water. Pure Health. Purelytic.</h1>
     <p>Your Trusted RO Purifier Brand for Homes & Businesses.</p>
     <a href="#products" class="btn btn-custom">Shop Now</a>
@@ -121,8 +161,26 @@
     </marquee>
   </div>
 
+  <div class="section-dark">
+    <h2>Why People Trust Purelytic</h2>
+    <div class="counters">
+      <div class="counter-box">
+        <h3 id="customers">0</h3>
+        <p>Happy Customers</p>
+      </div>
+      <div class="counter-box">
+        <h3 id="litres">0</h3>
+        <p>Litres Purified</p>
+      </div>
+      <div class="counter-box">
+        <h3 id="cities">0</h3>
+        <p>Cities Served</p>
+      </div>
+    </div>
+  </div>
+
   <div id="products" class="section-dark">
-    <h2>Our Premium RO Purifiers</h2>
+<h2>Our Premium RO Purifiers</h2>
     <div class="container">
       <div class="row">
         <div class="col-md-4 mb-4" data-aos="fade-up">
@@ -210,7 +268,22 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+    // Animated Counters
+    function animateCounter(id, target, speed) {
+      let count = 0;
+      const step = Math.ceil(target / 100);
+      const interval = setInterval(() => {
+        count += step;
+        if (count >= target) {
+          count = target;
+          clearInterval(interval);
+        }
+        document.getElementById(id).innerText = count;
+      }, speed);
+    }
+    animateCounter("customers", 1200, 20);
+    animateCounter("litres", 500000, 5);
+    animateCounter("cities", 52, 100);
   </script>
 </body>
-
 </html>
