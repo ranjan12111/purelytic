@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purelytic Commercial Max</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+     :root {
+      --bg-color: #111;
+      --text-color: #fff;
+      --accent-color: #00ffae;
+    }
+    body.light-mode {
+      --bg-color: #f8f9fa;
+      --text-color: #111;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      transition: 0.3s;
+    }
+    header {
+      background-color: #000;
+      padding: 10px 20px;
+      border-bottom: 2px solid var(--accent-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .home-link img {
+      height: 32px;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin: 0;
+    }
+    nav {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: var(--text-color);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: var(--accent-color);
+    }
+    .container {
+      max-width: 1140px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    .carousel-inner img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
+    }
+    .carousel-inner img:hover {
+      transform: scale(1.08);
+    }
+    .carousel-indicators li {
+      background-color: var(--accent-color);
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .price {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    .stock-count {
+      font-size: 1rem;
+      color: lightcoral;
+      margin-top: 5px;
+    }
+    .timer {
+      font-size: 0.95rem;
+      color: orange;
+    }
+    .payment-icons img {
+      height: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .verified-badge {
+      display: inline-block;
+      background: #2ecc71;
+      color: white;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      border-radius: 20px;
+      margin-left: 10px;
+    }
+    .stars {
+      color: gold;
+      font-size: 1.2rem;
+      margin-left: 8px;
+    }
+    .btn-whatsapp, .btn-buy, .btn-darkmode {
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-weight: 500;
+      text-decoration: none;
+      margin-top: 20px;
+      display: inline-block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-whatsapp {
+      background-color: #25d366;
+      color: white;
+      font-size: 0.9rem;
+    }
+    .btn-buy {
+      background-color: #ff3c3c;
+      color: white;
+      margin-right: 10px;
+    }
+    .btn-buy:hover,
+    .btn-whatsapp:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 255, 174, 0.3);
+    }
+    .btn-darkmode {
+      background-color: var(--accent-color);
+      color: #000;
+      float: right;
+      margin-right: 10px;
+    }
+    .section-title {
+      color: var(--accent-color);
+      font-size: 2rem;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease forwards;
+    }
+    @media (max-width: 768px) {
+      header, nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .logo {
+        font-size: 1.5rem;
+      }
+      .btn-darkmode {
+        float: none;
+        margin: 10px 0;
+      }
+      .payment-icons img {
+        height: 24px;
+        margin: 5px;
+      }
+      .carousel-inner img {
+        border-radius: 8px;
+      }
+      .row.align-items-center {
+        flex-direction: column;
+      }
+      .col-md-6 {
+        width: 100%;
+        padding: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body onload="startCountdown()">
+  <header>
+    <a href="index.html" class="home-link"><img src="homei.png" alt="Home"></a>
+    <div class="logo">Purelytic</div>
+    <button class="btn-darkmode" onclick="toggleMode()">🌙/☀️</button>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#features">Features</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <div class="container fade-in">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div id="productCarousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#productCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#productCarousel" data-slide-to="1"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="7.png" class="d-block w-100" alt="Commercial Max">
+            </div>
+            <div class="carousel-item">
+              <img src="back7.png" class="d-block w-100" alt="Commercial Max Back">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h1 class="section-title">
+          Purelytic Commercial Max
+          <span class="verified-badge">✔ Verified</span>
+          <span class="stars">★★★★☆</span>
+        </h1>
+        <p class="price">₹13,999 <span style="text-decoration: line-through; color: gray; font-size: 1rem;">₹17,499</span> <span style="color: lightgreen; font-size: 0.9rem;">20% off</span></p>
+        <p class="stock-count">Only <strong id="stockCount">5</strong> left in stock</p>
+        <p class="timer">⏳ Deal ends in <span id="countdown">--:--:--</span></p>
+        <ul class="features">
+          <li>25L/hr Output Capacity</li>
+          <li>Stainless Steel Tank + Outer Casing</li>
+          <li>Auto Shut-Off with Leak Detection</li>
+          <li>Wall Mount + Commercial Counter Setup</li>
+          <li>Heavy-Duty Filtration with TDS Controller</li>
+          <li>Ideal for Restaurants, Gyms, Offices</li>
+        </ul>
+        <div class="payment-icons my-3">
+          <img src="gpay.png" alt="GPay">
+          <img src="visa.png" alt="Visa">
+          <img src="master.png" alt="Mastercard">
+          <img src="upi.png" alt="UPI">
+        </div>
+        <a href="#" class="btn-buy">Buy Now</a>
+        <a href="https://wa.me/919798844205" target="_blank" class="btn-whatsapp">Enquire on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="offer-box">
+      <h4>Available Offers</h4>
+      <ul>
+        <li><strong>Bank Offer:</strong> Flat ₹1000 Instant Discount on HDFC Credit Cards</li>
+        <li><strong>Partner Offer:</strong> Get ₹250 Cashback via Paytm UPI</li>
+        <li><strong>No Cost EMI:</strong> Starting ₹1,500/month</li>
+        <li><strong>Easy Payment:</strong> GPay, UPI, Cards, COD available</li>
+      </ul>
+      <h4 class="section-title">Guarantee & Return</h4>
+      <p>🛡 <strong>1-Year Warranty</strong> | 🚚 10-Day Commercial Use Return Policy</p>
+    </div>
+
+    <div class="pincode-box">
+      <h4 class="section-title">Check Delivery Availability</h4>
+      <input type="text" id="pincode" placeholder="Enter your pincode" class="form-control w-50 mb-2">
+      <button class="btn btn-outline-light" onclick="checkDelivery()">Check</button>
+      <p id="delivery-result" class="mt-2"></p>
+    </div>
+
+    <div class="mt-5">
+      <h3 class="section-title">Highlights</h3>
+      <ul class="features">
+        <li>Heavy-Duty RO System for Commercial Use</li>
+        <li>25 Litres per Hour Purification</li>
+        <li>High-Pressure Pump for Continuous Flow</li>
+        <li>Smart Auto-Shut Safety Technology</li>
+        <li>Industrial Grade Pre-Filter Setup</li>
+      </ul>
+    </div>
+
+    <div class="mt-5">
+      <h3 class="section-title">Product Description</h3>
+      <p>The Purelytic Commercial Max RO system is built for high-demand environments like gyms, hospitals, and restaurants. Designed with stainless steel casing, it offers a solid industrial build. Its 25L/hr capacity ensures consistent flow, and the smart shut-off sensor provides peace of mind. With easy installation and powerful TDS regulation, this unit is the perfect partner for clean and safe drinking water in commercial setups.</p>
+    </div>
+
+    <div class="faq">
+      <h3 class="section-title">Questions and Answers</h3>
+      <h5>Q: Can this be used in a restaurant kitchen?</h5>
+      <p>A: Absolutely. It’s designed for commercial use and food-grade safe.</p>
+      <h5>Q: Does it include installation?</h5>
+      <p>A: Yes, free installation is provided within 2–3 working days of delivery.</p>
+      <h5>Q: Can it be wall-mounted?</h5>
+      <p>A: Yes, it's compatible with both wall-mount and counter installation.</p>
+    </div>
+
+    <div class="review-box" id="reviews">
+      <h4 class="section-title">Customer Reviews (4.4/5)</h4>
+      <ul class="features">
+        <li>⭐⭐⭐⭐⭐ “Perfect for our small restaurant!” – Dhruv, Ahmedabad</li>
+        <li>⭐⭐⭐⭐ “Sturdy and reliable. Good for heavy use.” – Anjali, Bhopal</li>
+        <li>⭐⭐⭐ “Takes a little space, but works well.” – Vikas, Delhi</li>
+        <li>⭐⭐⭐⭐⭐ “Crystal clear water and durable build.” – Arjun, Pune</li>
+        <li>⭐⭐⭐⭐ “Quick installation. Happy with the flow rate.” – Sneha, Bengaluru</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>ABOUT</h5>
+        <ul>
+          <li>About Us</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+      <div class="col-md-8">
+        <h5>Corporate Information</h5>
+        <p><strong>Registered Office Address:</strong><br>
+        R/o- Kishan Colony, Nearby Satya Gais Godam,<br>
+        Po- Anishabad, Phulwari Sarif, Dist.- Patna, Bihar, Pin-800002<br>
+        919798844205
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+    }
+    function startCountdown() {
+      let timer = 3 * 60 * 60;
+      const countdownEl = document.getElementById('countdown');
+      const stockEl = document.getElementById('stockCount');
+      const interval = setInterval(() => {
+        let h = String(Math.floor(timer / 3600)).padStart(2, '0');
+        let m = String(Math.floor((timer % 3600) / 60)).padStart(2, '0');
+        let s = String(timer % 60).padStart(2, '0');
+        countdownEl.textContent = `${h}:${m}:${s}`;
+        if (timer <= 0) clearInterval(interval);
+        timer--;
+      }, 1000);
+
+      let stock = parseInt(stockEl.textContent);
+      setInterval(() => {
+        if (stock > 1) {
+          stock--;
+          stockEl.textContent = stock;
+        }
+      }, 60000);
+    }
+    function checkDelivery() {
+      const pin = document.getElementById("pincode").value;
+      const state = getStateByPincode(pin);
+      if (pin && pin.length === 6) {
+        const date = new Date();
+        date.setDate(date.getDate() + 7);
+        const deliveryDate = date.toDateString();
+        document.getElementById("delivery-result").innerText = `✅ Delivery available in ${state || 'your area'} by ${deliveryDate}`;
+      } else {
+        document.getElementById("delivery-result").innerText = '❌ Please enter a valid 6-digit pincode.';
+      }
+    }
+    function getStateByPincode(pin) {
+      const pincodeMap = {
+        "800001": "Patna, Bihar",
+        "110001": "New Delhi",
+        "400001": "Mumbai, Maharashtra",
+        "700001": "Kolkata, West Bengal",
+        "600001": "Chennai, Tamil Nadu"
+      };
+      return pincodeMap[pin] || null;
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
