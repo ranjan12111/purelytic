@@ -1,4 +1,3 @@
-<!-- Full page code with product section restored -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +25,7 @@
       transition: 0.3s;
     }
     header {
-      background-color: #328ba8;
+      background-color: #000;
       padding: 10px 20px;
       border-bottom: 2px solid var(--accent-color);
       position: sticky;
@@ -40,7 +39,13 @@
       height: 32px;
     }
     .logo {
-      height: 50px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin: 0;
     }
     nav {
       background-color: #222;
@@ -67,10 +72,21 @@
       transition: transform 0.4s ease;
     }
     .carousel-inner img:hover {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
     .carousel-indicators li {
       background-color: var(--accent-color);
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     .price {
       font-size: 1.8rem;
@@ -84,6 +100,7 @@
       border-radius: 10px;
       margin-top: 20px;
       color: #ccc;
+      animation: fadeInUp 1s ease forwards;
     }
     .features {
       list-style: none;
@@ -101,6 +118,7 @@
       text-decoration: none;
       margin-top: 20px;
       display: inline-block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .btn-whatsapp {
       background-color: #25d366;
@@ -112,6 +130,11 @@
       color: white;
       margin-right: 10px;
     }
+    .btn-buy:hover,
+    .btn-whatsapp:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 255, 174, 0.3);
+    }
     .btn-darkmode {
       background-color: var(--accent-color);
       color: #000;
@@ -122,6 +145,7 @@
       color: var(--accent-color);
       font-size: 2rem;
       margin-bottom: 20px;
+      animation: fadeInUp 1s ease forwards;
     }
     .faq h5 {
       color: var(--accent-color);
@@ -143,17 +167,19 @@
 </head>
 <body>
   <header>
-    <a href="index.html" class="home-link"><img src="homei.png" alt="Home"></a>
-    <img src="logo1.png" alt="PURELYTIC Logo" class="logo">
+    <a href="index.html" class="home-link"><img src="home-icon.png" alt="Home"></a>
+    <div class="logo">Purelytic</div>
     <button class="btn-darkmode" onclick="toggleMode()">🌙/☀️</button>
   </header>
   <nav>
-    <a href="index.html" class="home-link"><img src="homei.png" alt="Home"></a>
-    
+    <a href="index.html" class="home-link" alt="Home"></a>
+    <a href="#features">Features</a>
     <a href="#reviews">Reviews</a>
     <a href="#faq">FAQ</a>
   </nav>
-  <div class="container">
+  <div class="container fade-in">
+    <!-- product section and rest of the content remain same -->
+
     <div class="row align-items-center">
       <div class="col-md-6">
         <div id="productCarousel" class="carousel slide" data-ride="carousel">
