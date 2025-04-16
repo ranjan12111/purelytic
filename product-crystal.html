@@ -1,3 +1,4 @@
+<!-- Enhancements added: Live Stock Count, Scarcity Timer, Payment Icons, Verified Badge -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,21 +95,33 @@
       font-weight: bold;
       margin-top: 15px;
     }
-    .offer-box, .review-box, .guarantee-box, .pincode-box {
-      background: #222;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-      color: #ccc;
-      animation: fadeInUp 1s ease forwards;
+    .stock-count {
+      font-size: 1rem;
+      color: lightcoral;
+      margin-top: 5px;
     }
-    .features {
-      list-style: none;
-      padding-left: 0;
+    .timer {
+      font-size: 0.95rem;
+      color: orange;
     }
-    .features li::before {
-      content: "✔ ";
-      color: var(--accent-color);
+    .payment-icons img {
+      height: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .verified-badge {
+      display: inline-block;
+      background: #2ecc71;
+      color: white;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      border-radius: 20px;
+      margin-left: 10px;
+    }
+    .stars {
+      color: gold;
+      font-size: 1.2rem;
+      margin-left: 8px;
     }
     .btn-whatsapp, .btn-buy, .btn-darkmode {
       border: none;
@@ -147,39 +160,21 @@
       margin-bottom: 20px;
       animation: fadeInUp 1s ease forwards;
     }
-    .faq h5 {
-      color: var(--accent-color);
-    }
-    .faq p {
-      color: #ccc;
-      margin-bottom: 15px;
-    }
-    footer {
-      background: #000;
-      color: #aaa;
-      padding: 40px 20px;
-      margin-top: 60px;
-    }
-    footer h5 {
-      color: var(--accent-color);
-    }
   </style>
 </head>
-<body>
+<body onload="startCountdown()">
   <header>
-    <a href="index.html" class="home-link"><img src="homei.png" alt="Home"></a>
+    <a href="index.html" class="home-link"><img src="home-icon.png" alt="Home"></a>
     <div class="logo">Purelytic</div>
     <button class="btn-darkmode" onclick="toggleMode()">🌙/☀️</button>
   </header>
   <nav>
-    <a href="index.html" class="home-link">< Home></a>
+    <a href="index.html" class="home-link">Home</a>
     <a href="#features">Features</a>
     <a href="#reviews">Reviews</a>
     <a href="#faq">FAQ</a>
   </nav>
   <div class="container fade-in">
-    <!-- product section and rest of the content remain same -->
-
     <div class="row align-items-center">
       <div class="col-md-6">
         <div id="productCarousel" class="carousel slide" data-ride="carousel">
@@ -206,8 +201,14 @@
         </div>
       </div>
       <div class="col-md-6">
-        <h1 class="section-title">Purelytic Crystal RO+UV+UF</h1>
+        <h1 class="section-title">
+          Purelytic Crystal RO+UV+UF
+          <span class="verified-badge">✔ Verified</span>
+          <span class="stars">★★★★☆</span>
+        </h1>
         <p class="price">₹7,999 <span style="text-decoration: line-through; color: gray; font-size: 1rem;">₹9,499</span> <span style="color: lightgreen; font-size: 0.9rem;">16% off</span></p>
+        <p class="stock-count">Only <strong id="stockCount">4</strong> left in stock</p>
+        <p class="timer">⏳ Deal ends in <span id="countdown">--:--:--</span></p>
         <ul class="features">
           <li>7-Stage Filtration System</li>
           <li>RO + UV + UF Technology</li>
@@ -216,12 +217,45 @@
           <li>Advanced Filter Alert System</li>
           <li>Ideal for Municipal Water Supply</li>
         </ul>
+        <div class="payment-icons my-3">
+          <img src="gpay.png" alt="GPay">
+          <img src="visa.png" alt="Visa">
+          <img src="mastercard.png" alt="Mastercard">
+          <img src="upi.png" alt="UPI">
+        </div>
         <a href="#" class="btn-buy">Buy Now</a>
         <a href="https://wa.me/919798844205" target="_blank" class="btn-whatsapp">Enquire on WhatsApp</a>
       </div>
     </div>
   </div>
-  <div class="container">
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+    }
+    function startCountdown() {
+      let timer = 3 * 60 * 60; // 3 hours
+      const countdownEl = document.getElementById('countdown');
+      const stockEl = document.getElementById('stockCount');
+      const interval = setInterval(() => {
+        let h = String(Math.floor(timer / 3600)).padStart(2, '0');
+        let m = String(Math.floor((timer % 3600) / 60)).padStart(2, '0');
+        let s = String(timer % 60).padStart(2, '0');
+        countdownEl.textContent = `${h}:${m}:${s}`;
+        if (timer <= 0) clearInterval(interval);
+        timer--;
+      }, 1000);
+
+      // Simulate live stock count
+      let stock = parseInt(stockEl.textContent);
+      setInterval(() => {
+        if (stock > 1) {
+          stock--;
+          stockEl.textContent = stock;
+        }
+      }, 60000);
+    }
+  </script>
+<div class="container">
   <div class="offer-box">
       <h4>Available Offers</h4>
       <ul>
