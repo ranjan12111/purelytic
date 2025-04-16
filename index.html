@@ -7,37 +7,80 @@
   <title>Purelytic - Pure Water. Pure Health.</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
+      background-color: #111;
+      color: #fff;
     }
     .hero {
-      background: url('9.png') no-repeat center center/cover;
-      color: white;
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('9.png') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 100px 20px;
+      padding: 20px;
     }
     .hero h1 {
       font-size: 3rem;
-      font-weight: bold;
+      font-weight: 600;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .btn-custom {
+      background-color: #25d366;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 500;
+      margin: 10px;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background-color: #1ebc5a;
+      transform: scale(1.05);
+    }
+    .section-dark {
+      background-color: #1c1c1c;
+      padding: 60px 20px;
+    }
+    .section-dark h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #00ffae;
     }
     .product-card {
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.4s ease, box-shadow 0.3s ease;
+      background: #222;
+      border: none;
+      border-radius: 12px;
       overflow: hidden;
-      border: 1px solid #e0e0e0;
-      position: relative;
+      box-shadow: 0 0 20px rgba(0, 255, 174, 0.1);
+      transition: transform 0.3s ease;
     }
     .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0, 255, 174, 0.2);
     }
     .product-card img {
-      transition: transform 0.4s ease;
+      width: 100%;
+      height: auto;
     }
-    .product-card:hover img {
-      transform: scale(1.1);
+    .product-card .card-body {
+      padding: 20px;
+    }
+    .product-card h5 {
+      color: #00ffae;
+      font-weight: 600;
+    }
+    .product-card p {
+      color: #ccc;
     }
     .floating-whatsapp {
       position: fixed;
@@ -45,43 +88,19 @@
       right: 20px;
       background: #25d366;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border-radius: 30px;
       font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      z-index: 9999;
+      z-index: 1000;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
     }
     .reviews-marquee {
-      background: #f8f9fa;
+      background: #000;
       padding: 10px;
-      font-size: 0.95rem;
+      color: #ccc;
       font-style: italic;
-      color: #333;
-    }
-    .btn-whatsapp {
-      background-color: #25d366;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 8px 16px;
-      font-weight: 500;
-    }
-    .btn-whatsapp:hover {
-      background-color: #1ebc5a;
-      color: #fff;
-    }
-    .ribbon {
-      position: absolute;
-      top: 10px;
-      left: -5px;
-      background: #ff4081;
-      color: white;
-      padding: 5px 12px;
-      font-size: 12px;
-      font-weight: bold;
-      transform: rotate(-45deg);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -90,47 +109,9 @@
   <div class="hero">
     <h1>Pure Water. Pure Health. Purelytic.</h1>
     <p>Your Trusted RO Purifier Brand for Homes & Businesses.</p>
-    <a href="#products" class="btn btn-light m-2">Shop Now</a>
-    <a href="dealers.html" class="btn btn-outline-light m-2">Become a Dealer</a>
+    <a href="#products" class="btn btn-custom">Shop Now</a>
+    <a href="dealers.html" class="btn btn-custom">Become a Dealer</a>
   </div>
-
-  <div id="products" class="container my-5">
-    <h2 class="text-center mb-5">Our Premium RO Purifiers</h2>
-    <div class="row">
-      <div class="col-md-4 mb-5" data-aos="fade-up">
-        <div class="card product-card">
-          <img src="8.png">
-          <div class="card-body">
-            <h5 class="card-title">Purelytic Crystal RO+UV+UF</h5>
-            <p class="card-text">7-Stage Filtration, TDS Controller, 12L Tank, Wall Mount. Ideal for homes & small offices.</p>
-            <a href="https://wa.me/919798844205" target="_blank" class="btn btn-whatsapp">Enquire on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-5" data-aos="fade-up" data-aos-delay="100">
-        <div class="card product-card">
-          <img src="6.png">
-          <div class="card-body">
-            <h5 class="card-title">Purelytic Elite Copper+</h5>
-            <p class="card-text">Copper Enriched Alkaline RO, UV, LED Display, 8L Tank. Best for health-conscious families.</p>
-            <a href="https://wa.me/919798844205" target="_blank" class="btn btn-whatsapp">Enquire on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-5" data-aos="fade-up" data-aos-delay="200">
-        <div class="card product-card">
-          <img src="7.png">
-          <div class="card-body">
-            <h5 class="card-title">Purelytic Commercial Max</h5>
-            <p class="card-text">25L/hr Output, Stainless Steel, Auto Shut-Off, Leak Detection. Ideal for restaurants & shops.</p>
-            <a href="https://wa.me/919798844205" target="_blank" class="btn btn-whatsapp">Enquire on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <a class="floating-whatsapp" href="https://wa.me/919798844205" target="_blank">Chat on WhatsApp</a>
 
   <div class="reviews-marquee">
     <marquee behavior="scroll" direction="left">
@@ -140,57 +121,89 @@
     </marquee>
   </div>
 
-  <!-- Additional Products Section -->
-  <div class="container my-5">
-    <h3 class="text-center mb-4">Explore More Products</h3>
-    <div class="row">
-      <div class="col-md-3 mb-4" data-aos="zoom-in">
-        <div class="card product-card">
-          <div class="ribbon">Best Seller</div>
-          <img src="4.png" class="card-img-top" alt="Slim Mini RO">
-          <div class="card-body">
-            <h5 class="card-title">Purelytic Slim Mini RO</h5>
-            <p class="text-muted mb-1">₹4,999</p>
-            <p class="card-text">Compact design, 6-stage filtration system. Perfect for small families and hostel rooms.</p>
-            <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+  <div id="products" class="section-dark">
+    <h2>Our Premium RO Purifiers</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4" data-aos="fade-up">
+          <div class="card product-card">
+            <img src="8.png">
+            <div class="card-body">
+              <h5>Purelytic Crystal RO+UV+UF</h5>
+              <p>₹7,999 – 7-Stage Filtration, TDS Controller, 12L Tank, Wall Mount. Ideal for homes & small offices.</p>
+              <a href="https://wa.me/919798844205" class="btn btn-custom">Enquire on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card product-card">
+            <img src="6.png">
+            <div class="card-body">
+              <h5>Purelytic Elite Copper+</h5>
+              <p>₹10,999 – Copper Enriched Alkaline RO, UV, LED Display, 8L Tank. Health-conscious choice.</p>
+              <a href="https://wa.me/919798844205" class="btn btn-custom">Enquire on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card product-card">
+            <img src="7.png">
+            <div class="card-body">
+              <h5>Purelytic Commercial Max</h5>
+              <p>₹14,999 – 25L/hr Output, Stainless Steel, Auto Shut-Off, Leak Detection. For restaurants & shops.</p>
+              <a href="https://wa.me/919798844205" class="btn btn-custom">Enquire on WhatsApp</a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="card product-card">
-          <img src="5.png" class="card-img-top" alt="Copper Advance Pro">
-          <div class="card-body">
-            <h5 class="card-title">Purelytic Copper Advance Pro</h5>
-            <p class="text-muted mb-1">₹10,999</p>
-            <p class="card-text">Copper + Alkaline RO with UV LED purification. Perfect for healthy hydration.</p>
-            <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+
+      <h2 class="mt-5">Explore More Products</h2>
+      <div class="row mt-4">
+        <div class="col-md-3 mb-4" data-aos="zoom-in">
+          <div class="card product-card">
+            <img src="4.png">
+            <div class="card-body">
+              <h5>Slim Mini RO</h5>
+              <p>₹4,999 – Compact 6-stage filtration system. Ideal for small families and hostels.</p>
+              <a href="https://wa.me/919798844205" class="btn btn-custom">Enquire on WhatsApp</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
-        <div class="card product-card">
-          <img src="3.png" class="card-img-top" alt="WallMate Eco">
-          <div class="card-body">
-            <h5 class="card-title">Purelytic WallMate Eco</h5>
-            <p class="text-muted mb-1">₹6,499</p>
-            <p class="card-text">Wall mount RO, low TDS removal. Budget-friendly for apartments and small families.</p>
-            <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+        <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="card product-card">
+            <img src="5.png">
+            <div class="card-body">
+              <h5>Copper Advance Pro</h5>
+              <p>₹10,999 – Advanced Copper + Alkaline RO with UV LED. Perfect for health-conscious users.</p>
+              <a href="https://wa.me/919798844205" class="btn btn-custom">Enquire on WhatsApp</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="300">
-        <div class="card product-card">
-          <img src="2.png" class="card-img-top" alt="Pro+ Tankless">
-          <div class="card-body">
-            <h5 class="card-title">Purelytic Pro+ Tankless</h5>
-            <p class="text-muted mb-1">₹13,499</p>
-            <p class="card-text">Tankless, instant purification with stylish design. Ideal for modern kitchens and offices.</p>
-            <a href="https://wa.me/919798844205" class="btn btn-whatsapp">Enquire on WhatsApp</a>
+        <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="card product-card">
+            <img src="3.png">
+            <div class="card-body">
+              <h5>WallMate Eco</h5>
+              <p>₹6,499 – Wall-mount RO with low TDS. Best for budget apartments and city homes.</p>
+              <a href="https://wa.me/919798844205" class="btn btn-custom">Enquire on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="card product-card">
+            <img src="2.png">
+            <div class="card-body">
+              <h5>Pro+ Tankless</h5>
+              <p>₹13,499 – Stylish tankless design with instant RO. Perfect for modern kitchens & offices.</p>
+              <a href="https://wa.me/919798844205" class="btn btn-custom">Enquire on WhatsApp</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <a class="floating-whatsapp" href="https://wa.me/919798844205" target="_blank">Chat on WhatsApp</a>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
